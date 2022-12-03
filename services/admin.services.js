@@ -14,8 +14,8 @@ exports.create_URL_service = async (data) => {
 
 
 // Get all urls
-exports.get_all_URLs_services = async () => {
-    const file = path.join(process.cwd(), './public/users.json');
+exports.get_all_URL_service = async () => {
+    const file = path.join(process.cwd(), "./public/users.json");
     const user_data = await JSON.parse(fs.readFileSync(file));
     return user_data;
 };

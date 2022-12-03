@@ -1,6 +1,6 @@
 const {
      create_URL_service,
-     get_all_URLs_services
+     get_all_URL_service
      } = require('../services/admin.services');
 
 
@@ -24,7 +24,7 @@ exports.create_URL = async (req, res, next) => {
 // Generate url
 exports.get_all_URLs = async (req, res, next) => {
     try {
-        const result = await get_all_URLs_services();
+        const result = await get_all_URL_service();
         res.status(200).json({
             status: "success",
             data: result
