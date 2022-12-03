@@ -6,6 +6,7 @@ const router = express.Router();
 // Generate url
 router
     .route("/url")
-    .post(adminController.createURL)
+    .get(adminController.get_all_URLs)
+    .post(adminController.create_URL)
 
 module.exports = router;
