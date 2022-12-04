@@ -3,10 +3,14 @@ const adminController = require('../../controllers/admin.controller');
 const router = express.Router();
 
 
-// Generate url
+// Create user
 router
     .route("/url")
-    .get(adminController.get_all_URLs)
-    .post(adminController.create_URL)
+    .get(adminController.get_all_user)
+    .post(adminController.create_user)
+
+router
+    .route("/specific_url")
+    .get(adminController.get_specific_userinfo)
 
 module.exports = router;
