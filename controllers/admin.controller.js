@@ -53,11 +53,24 @@ exports.get_specific_userinfo = async (req, res, next) => {
     //   data: result,
     // });
     // res.sendFile("test.html", { root: "./public" });
-    res.render("../views/test.ejs", {
+    res.render("../views/payment.ejs", {
       amount: result?.amount,
       name: result?.name,
       vpa_upi: result?.vpa_upi,
+      pm: result?.payment_method,
     });
+  } catch (error) {
+    res.status(400).json({
+      status: "fail",
+      error: "No data found",
+    });
+  }
+};
+
+// Get success page
+exports.get_success_html = async (req, res, next) => {
+  try {
+    res.sendFile("success.html", { root: "./public/pages" });
   } catch (error) {
     res.status(400).json({
       status: "fail",

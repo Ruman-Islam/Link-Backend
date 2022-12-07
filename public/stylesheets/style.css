@@ -1,8 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap");
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Times New Roman", Times, serif;
+  /* font-family: "Times New Roman", Times, serif; */
 }
 
 main {
@@ -125,4 +127,35 @@ main {
   font-size: 14px;
   font-weight: 100;
   text-decoration: underline;
+}
+
+/* success page styles*/
+.success-container {
+  background-color: #dedddd;
+  height: 100vh;
+  width: 100vw;
+  text-align: center;
+  padding: 50px;
+}
+
+.success-box {
+  background: white;
+  padding: 60px;
+  border-radius: 4px;
+  box-shadow: 0 2px 3px #c8d0d8;
+  display: inline-block;
+  margin: 0 auto;
+  color: #fd9d07;
+  font-weight: 700;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 20px;
+  margin: 0;
+}
+
+.check-mark {
+  color: #9abc66;
+  font-size: 100px;
+  line-height: 200px;
+  margin-left: -15px;
+  font-weight: 200;
 }

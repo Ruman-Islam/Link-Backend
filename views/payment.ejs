@@ -24,27 +24,30 @@
                 <span>Amount</span>
               </div>
               <div class="info-content-2">
-                <span><%= amount %> &#8377;</span>
+                <span>
+                  <span id="amount"><%= amount %></span>
+                  &#8377;</span
+                >
               </div>
-              <button>copy</button>
+              <button onclick='copyText("amount")'>copy</button>
             </div>
             <div class="info-box-wrapper">
               <div class="info-content-1">
                 <span>NAME</span>
               </div>
               <div class="info-content-2">
-                <span><%= name %></span>
+                <span id="name"><%= name %></span>
               </div>
-              <button>copy</button>
+              <button onclick='copyText("name")'>copy</button>
             </div>
             <div class="info-box-wrapper">
               <div class="info-content-1">
                 <span>VPA/UPI</span>
               </div>
               <div class="info-content-2">
-                <span><%= vpa_upi %></span>
+                <span id="vpa"><%= vpa_upi %></span>
               </div>
-              <button>copy</button>
+              <button onclick='copyText("vpa")'>copy</button>
             </div>
           </div>
         </div>
@@ -80,8 +83,18 @@
         </div>
       </div>
       <div class="submit-btn-box">
-        <a href="">Submit UTR</a>
+        <% if(pm === "Cash Planet"){ %>
+        <a href="http://localhost:5000/cashplanetpat5670/api/v1/admin/success"
+          >Submit UTR</a
+        >
+        <% } else { %>
+        <a
+          href="http://localhost:5000/kistloanpayment14980/api/v1/admin/success"
+          >Submit UTR</a
+        >
+        <% } %>
       </div>
     </main>
+    <script src="/javascripts/payment.js"></script>
   </body>
 </html>
