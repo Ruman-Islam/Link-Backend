@@ -19,7 +19,7 @@ app.use("/cashplanetpat5670/api/v1/admin", adminRoute);
 //   res.status(200).send("WELCOME TO THE USER LINK GENERATOR!")
 // );
 app.get("/", function (req, res) {
-  res.render("../views/payment");
+  res.render("views/payment");
 });
 app.all("*", (req, res) => res.status(200).send("NO ROUTE FOUND."));
 
