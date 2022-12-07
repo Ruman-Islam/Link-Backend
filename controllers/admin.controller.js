@@ -46,7 +46,7 @@ exports.get_specific_userinfo = async (req, res, next) => {
     if (!result) {
       return res.status(400).json({
         status: "fail",
-        error: "Couldn't find user with this email",
+        error: "Couldn't find user with this uid",
       });
     }
     // res.status(200).json({
