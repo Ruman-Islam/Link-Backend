@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/stylesheets/style.css" rel="stylesheet" type="text/css" />
+    <script
+      src="https://kit.fontawesome.com/a076d05399.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>SF-Pay</title>
+  </head>
+  <body>
+    <main>
+      <div>
+        <div class="step-1">
+          <div class="box-header">
+            <p>Step1: Copy Amount and Bank Account information</p>
+          </div>
+          <div class="info-box">
+            <div class="info-box-wrapper">
+              <div class="info-content-1">
+                <span>Amount</span>
+              </div>
+              <div class="info-content-2">
+                <span><%= amount %> &#8377;</span>
+              </div>
+              <button>copy</button>
+            </div>
+            <div class="info-box-wrapper">
+              <div class="info-content-1">
+                <span>NAME</span>
+              </div>
+              <div class="info-content-2">
+                <span><%= name %></span>
+              </div>
+              <button>copy</button>
+            </div>
+            <div class="info-box-wrapper">
+              <div class="info-content-1">
+                <span>VPA/UPI</span>
+              </div>
+              <div class="info-content-2">
+                <span><%= vpa_upi %></span>
+              </div>
+              <button>copy</button>
+            </div>
+          </div>
+        </div>
+        <br />
+        <div class="step-2">
+          <div class="box-header">
+            <p>Step2: Transfer and don't modify this amount to us</p>
+          </div>
+          <div class="caution-box">
+            <span><i class="fas fa-exclamation-triangle"></i></span>
+            <small
+              >Please record your reference No.{Ref No.} after payment</small
+            >
+          </div>
+        </div>
+        <div class="step-3">
+          <div class="box-header">
+            <p>Step3: Please enter Ref No. to complete the recharge</p>
+          </div>
+          <div class="caution-box">
+            <span><i class="fas fa-exclamation-triangle"></i></span>
+            <small
+              >Be sure to return this page to fill the UTR numbers after you
+              have completed your payment</small
+            >
+          </div>
+          <div class="utr-box">
+            <input
+              type="text"
+              placeholder="UTR (UPI Ref ID) must be 12 digits"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="submit-btn-box">
+        <a href="">Submit UTR</a>
+      </div>
+    </main>
+  </body>
+</html>
