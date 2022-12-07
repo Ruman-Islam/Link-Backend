@@ -72,8 +72,8 @@ exports.get_specific_userinfo = async (req, res, next) => {
 exports.get_success_html = async (req, res, next) => {
   try {
     // res.sendFile("success.html", { root: "./public/html" });
-    res.sendFile("html/success.html");
-    // res.sendFile(path.join(__dirname, "../public/html/success.html"));
+    // res.sendFile("html/success.html");
+    res.sendFile(path.join(__dirname, "../public/html/success.html"));
   } catch (error) {
     res.status(400).json({
       status: "fail",
