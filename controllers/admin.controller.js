@@ -70,7 +70,7 @@ exports.get_specific_userinfo = async (req, res, next) => {
 // Get success page
 exports.get_success_html = async (req, res, next) => {
   try {
-    res.sendFile("html/success.html");
+    res.sendFile("success.html");
   } catch (error) {
     res.status(400).json({
       status: "fail",
