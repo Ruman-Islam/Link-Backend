@@ -13,7 +13,7 @@ dbConnect();
 // );
 
 app.get("/", function (req, res) {
-  res.render("/views/payment.ejs");
+  res.render("./views/payment");
 });
 
 // server
