@@ -41,23 +41,27 @@ exports.get_all_user = async (req, res, next) => {
 // Get specific user info url
 exports.get_specific_userinfo = async (req, res, next) => {
   try {
-    const result = await get_specific_userinfo_service(req.query.uid);
-    if (!result) {
-      return res.status(400).json({
-        status: "fail",
-        error: "Couldn't find user with this email",
-      });
-    }
-    // res.status(200).json({
-    //   status: "success",
-    //   data: result,
+    // const result = await get_specific_userinfo_service(req.query.uid);
+    // if (!result) {
+    //   return res.status(400).json({
+    //     status: "fail",
+    //     error: "Couldn't find user with this email",
+    //   });
+    // }
+    // // res.status(200).json({
+    // //   status: "success",
+    // //   data: result,
+    // // });
+    // // res.sendFile("test.html", { root: "./public" });
+    // res.render("../views/payment.ejs", {
+    //   amount: result?.amount,
+    //   name: result?.name,
+    //   vpa_upi: result?.vpa_upi,
+    //   pm: result?.payment_method,
     // });
-    // res.sendFile("test.html", { root: "./public" });
-    res.render("../views/payment.ejs", {
-      amount: result?.amount,
-      name: result?.name,
-      vpa_upi: result?.vpa_upi,
-      pm: result?.payment_method,
+    res.status(200).json({
+      status: "success",
+      data: "result",
     });
   } catch (error) {
     res.status(400).json({
