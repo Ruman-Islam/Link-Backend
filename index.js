@@ -12,6 +12,10 @@ app.get("/", (req, res) =>
   res.status(200).send("WELCOME TO THE USER LINK GENERATOR!")
 );
 
+// app.get("/", function (req, res) {
+//   res.render("/views/payment.ejs");
+// });
+
 // server
 app.listen(port, () => {
   console.log(`App is running on port ${port}`.yellow.bold);

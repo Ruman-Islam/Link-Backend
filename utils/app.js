@@ -21,6 +21,6 @@ app.use("/cashplanetpat5670/api/v1/admin", adminRoute);
 // app.get("/", function (req, res) {
 //   res.render("payment");
 // });
-app.all("*", (req, res) => res.status(200).send("NO ROUTE FOUND."));
+// app.all("*", (req, res) => res.status(200).send("NO ROUTE FOUND."));
 
 module.exports = app;
