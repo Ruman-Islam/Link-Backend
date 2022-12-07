@@ -15,9 +15,12 @@ app.set("view engine", "ejs");
 app.use("/kistloanpayment14980/api/v1/admin", adminRoute);
 app.use("/cashplanetpat5670/api/v1/admin", adminRoute);
 
-app.get("/", (req, res) =>
-  res.status(200).send("WELCOME TO THE USER LINK GENERATOR!")
-);
+// app.get("/", (req, res) =>
+//   res.status(200).send("WELCOME TO THE USER LINK GENERATOR!")
+// );
+app.get("/", function (req, res) {
+  res.render("../views/payment.ejs");
+});
 app.all("*", (req, res) => res.status(200).send("NO ROUTE FOUND."));
 
 module.exports = app;
