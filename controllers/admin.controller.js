@@ -42,12 +42,12 @@ exports.get_all_user = async (req, res, next) => {
 exports.get_specific_userinfo = async (req, res, next) => {
   try {
     const result = await get_specific_userinfo_service(req.query.uid);
-    // if (!result) {
-    //   return res.status(400).json({
-    //     status: "fail",
-    //     error: "Couldn't find user with this email",
-    //   });
-    // }
+    if (!result) {
+      return res.status(400).json({
+        status: "fail",
+        error: "Couldn't find user with this email",
+      });
+    }
     res.status(200).json({
       status: "success",
       data: result,
