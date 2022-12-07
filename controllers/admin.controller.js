@@ -48,17 +48,17 @@ exports.get_specific_userinfo = async (req, res, next) => {
         error: "Couldn't find user with this email",
       });
     }
-    res.status(200).json({
-      status: "success",
-      data: result,
-    });
-    // res.sendFile("test.html", { root: "./public" });
-    // res.render("../views/payment.ejs", {
-    //   amount: result?.amount,
-    //   name: result?.name,
-    //   vpa_upi: result?.vpa_upi,
-    //   pm: result?.payment_method,
+    // res.status(200).json({
+    //   status: "success",
+    //   data: result,
     // });
+    // res.sendFile("test.html", { root: "./public" });
+    return res.render("../views/payment.ejs", {
+      amount: result?.amount,
+      name: result?.name,
+      vpa_upi: result?.vpa_upi,
+      pm: result?.payment_method,
+    });
   } catch (error) {
     res.status(400).json({
       status: "fail",
