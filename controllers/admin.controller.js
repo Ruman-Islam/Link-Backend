@@ -1,3 +1,4 @@
+const path = require("path");
 const {
   create_URL_service,
   get_all_user_service,
@@ -70,7 +71,8 @@ exports.get_specific_userinfo = async (req, res, next) => {
 // Get success page
 exports.get_success_html = async (req, res, next) => {
   try {
-    res.sendFile("../public/html/success.html");
+    // res.sendFile("success.html", { root: "./public/html" });
+    res.sendFile(path.join(__dirname, "../public/html/success.html"));
   } catch (error) {
     res.status(400).json({
       status: "fail",
