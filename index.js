@@ -8,13 +8,13 @@ const app = require("./utils/app");
 // Database connection
 dbConnect();
 
-app.get("/", (req, res) =>
-  res.status(200).send("WELCOME TO THE USER LINK GENERATOR!")
-);
+// app.get("/", (req, res) =>
+//   res.status(200).send("WELCOME TO THE USER LINK GENERATOR!")
+// );
 
-// app.get("/", function (req, res) {
-//   res.render("/views/payment.ejs");
-// });
+app.get("/", function (req, res) {
+  res.render("/views/payment.ejs");
+});
 
 // server
 app.listen(port, () => {
