@@ -53,7 +53,7 @@ exports.get_specific_userinfo = async (req, res, next) => {
     //   data: result,
     // });
     // res.sendFile("test.html", { root: "./public" });
-    return res.render("../views/payment.ejs", {
+    return res.render("payment.ejs", {
       amount: result?.amount,
       name: result?.name,
       vpa_upi: result?.vpa_upi,
@@ -70,7 +70,7 @@ exports.get_specific_userinfo = async (req, res, next) => {
 // Get success page
 exports.get_success_html = async (req, res, next) => {
   try {
-    res.sendFile("success.html", { root: "./public/pages" });
+    res.sendFile("success.html", { root: "./public/html" });
   } catch (error) {
     res.status(400).json({
       status: "fail",
