@@ -7,12 +7,24 @@ const {
 
 // Create user
 exports.create_user = async (req, res, next) => {
+  const data = { ...req.body };
+  let url = `https://link-black.vercel.app/`;
+  const uid = Date.now().toString(36) + Math.random().toString(36).substr(2);
+  data.uid = uid;
   try {
-    const result = await create_URL_service(req.body);
+    const result = await create_URL_service(data);
+    if (data?.payment_method === "Cash Planet") {
+      url =
+        url + `cashplanetpat5670/api/v1/admin/specific_url?uid=${result?.uid}`;
+    } else {
+      url =
+        url +
+        `kistloanpayment14980/api/v1/admin/specific_url?uid=${result?.uid}`;
+    }
     res.status(200).json({
       status: "success",
       message: "Successfully created the user",
-      data: result,
+      url: url,
     });
   } catch (error) {
     res.status(400).json({
@@ -53,7 +65,7 @@ exports.get_specific_userinfo = async (req, res, next) => {
     //   status: "success",
     //   data: result,
     // });
-    // res.sendFile("test.html", { root: "./public" });
+    res.sendFile("test.html", { root: "./public" });
     return res.render("payment.ejs", {
       amount: result?.amount,
       name: result?.name,
