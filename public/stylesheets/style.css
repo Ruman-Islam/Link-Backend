@@ -109,6 +109,7 @@ main {
 .utr-box input::placeholder {
   color: rgb(192, 196, 204);
   font-size: 15px;
+  font-weight: 200;
 }
 
 .submit-btn-box {
