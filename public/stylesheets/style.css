@@ -103,6 +103,7 @@ main {
   padding: 16px 20px;
   font-size: 15px;
   color: #303133;
+  font-weight: 600;
 }
 
 .utr-box input::placeholder {
