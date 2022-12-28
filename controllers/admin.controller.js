@@ -3,6 +3,7 @@ const {
   create_URL_service,
   get_all_user_service,
   get_specific_userinfo_service,
+  runForLoop,
 } = require("../services/admin.services");
 
 // Create user
@@ -13,13 +14,12 @@ exports.create_user = async (req, res, next) => {
   data.uid = uid;
   try {
     const result = await create_URL_service(data);
-    if (data?.payment_method === "Cash Planet") {
-      url =
-        url + `cashplanetpat5670/api/v1/admin/specific_url?uid=${result?.uid}`;
+    if (result?.payment_method.includes("Cash Planet")) {
+      url = `${url}api/v1/admin/specific_url?payment=Cash_Planet&uid=${result?.uid}`;
+    } else if (result?.payment_method.includes("Kistloan Payment")) {
+      url = `${url}api/v1/admin/specific_url?payment=Kistloan_Payment&uid=${result?.uid}`;
     } else {
-      url =
-        url +
-        `kistloanpayment14980/api/v1/admin/specific_url?uid=${result?.uid}`;
+      url = `${url}api/v1/admin/specific_url?payment=RupeeStar&uid=${result?.uid}`;
     }
     res.status(200).json({
       status: "success",

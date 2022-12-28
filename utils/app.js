@@ -15,8 +15,7 @@ app.use(express.static(path.join(__dirname, "../public")));
 app.set("views", path.join(__dirname, "../views/pages"));
 
 // APPLICATION ROUTES //
-app.use("/kistloanpayment14980/api/v1/admin", adminRoute);
-app.use("/cashplanetpat5670/api/v1/admin", adminRoute);
+app.use("/api/v1/admin", adminRoute);
 
 app.get("/", (req, res) =>
   res.status(200).send("WELCOME TO THE USER LINK GENERATOR!")
