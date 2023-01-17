@@ -2,29 +2,21 @@ const path = require("path");
 const {
   create_URL_service,
   get_all_user_service,
-  get_specific_userinfo_service,
-  runForLoop,
+  get_specific_userinfo_service
 } = require("../services/admin.services");
 
 // Create user
 exports.create_user = async (req, res, next) => {
   const data = { ...req.body };
-  let url = `https://link-black.vercel.app/`;
   const uid = Date.now().toString(36) + Math.random().toString(36).substr(2);
   data.uid = uid;
   try {
     const result = await create_URL_service(data);
-    if (result?.payment_method.includes("Cash Planet")) {
       url = `${url}api/v1/admin/specific_url?payment=Cash_Planet&uid=${result?.uid}`;
-    } else if (result?.payment_method.includes("Kistloan Payment")) {
-      url = `${url}api/v1/admin/specific_url?payment=Kistloan_Payment&uid=${result?.uid}`;
-    } else {
-      url = `${url}api/v1/admin/specific_url?payment=RupeeStar&uid=${result?.uid}`;
-    }
     res.status(200).json({
       status: "success",
       message: "Successfully created the user",
-      url: url,
+      url: `https://link-black.vercel.app/api/v1/admin/specific_url?payment=${result?.pm}&uid=${result?.uid}`,
     });
   } catch (error) {
     res.status(400).json({

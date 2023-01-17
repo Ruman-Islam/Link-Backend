@@ -17,7 +17,7 @@ const Customer_Schema = mongoose.Schema({
     type: String,
     required: [true, "Please provide vpa/upi"],
   },
-  payment_method: {
+  pm: {
     type: String,
   },
 });
