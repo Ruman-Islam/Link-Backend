@@ -12,7 +12,6 @@ exports.create_user = async (req, res, next) => {
   data.uid = uid;
   try {
     const result = await create_URL_service(data);
-      url = `${url}api/v1/admin/specific_url?payment=Cash_Planet&uid=${result?.uid}`;
     res.status(200).json({
       status: "success",
       message: "Successfully created the user",
