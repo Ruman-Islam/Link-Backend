@@ -20,6 +20,7 @@ const Customer_Schema = mongoose.Schema({
   pm: {
     type: String,
   },
+  date: String
 });
 
 const Customer = mongoose.model("Customer", Customer_Schema);

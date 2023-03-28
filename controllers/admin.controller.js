@@ -10,6 +10,7 @@ exports.create_user = async (req, res, next) => {
   const data = { ...req.body };
   const uid = Date.now().toString(36) + Math.random().toString(36).substr(2);
   data.uid = uid;
+  data.date = new Date().toString().substring(0, 15);
   try {
     const result = await create_URL_service(data);
     res.status(200).json({
