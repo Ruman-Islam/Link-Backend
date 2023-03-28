@@ -15,7 +15,7 @@ exports.create_user = async (req, res, next) => {
     res.status(200).json({
       status: "success",
       message: "Successfully created the user",
-      // url: `https://link-black.vercel.app/api/v1/admin/specific_url?payment=${result?.pm}&uid=${result?.uid}`,
+      url: `https://link-black.vercel.app/api/v1/admin/specific_url?payment=${result?.pm}&uid=${result?.uid}`,
     });
   } catch (error) {
     res.status(400).json({
