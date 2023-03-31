@@ -1,4 +1,5 @@
 const path = require("path");
+const Customer = require("../models/Link");
 const {
   create_URL_service,
   get_all_user_service,
@@ -78,6 +79,24 @@ exports.get_success_html = async (req, res, next) => {
     // res.sendFile("success.html", { root: "./public/html" });
     // res.sendFile("html/success.html");
     res.sendFile(path.join(__dirname, "../public/html/success.html"));
+  } catch (error) {
+    res.status(400).json({
+      status: "fail",
+      error: "No data found",
+    });
+  }
+};
+
+
+exports.getTotalIncome = async (req, res, next) => {
+  try {
+    const result = await Customer.aggregate([
+      {$group: {_id: null, total_income: {$sum: "$amount"}}}
+    ])
+    res.status(200).json({
+      status: "success",
+      data: result,
+    });
   } catch (error) {
     res.status(400).json({
       status: "fail",

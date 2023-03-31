@@ -12,4 +12,6 @@ router.route("/specific_url").get(adminController.get_specific_userinfo);
 
 router.route("/success").get(adminController.get_success_html);
 
+router.route("/total_income").get(adminController.getTotalIncome);
+
 module.exports = router;
