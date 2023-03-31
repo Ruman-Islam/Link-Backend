@@ -93,11 +93,12 @@ exports.getTotalIncome = async (req, res, next) => {
     const result = await Customer.aggregate([
       {$group: {_id: null, total_income: {$sum: "$amount"}}}
     ])
+    const length = await Customer.find({})
     res.status(200).json({
       status: "success",
       data: {
         result: result,
-        count: result.length
+        count: length.length
       },
     });
   } catch (error) {
