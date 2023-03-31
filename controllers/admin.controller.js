@@ -95,7 +95,10 @@ exports.getTotalIncome = async (req, res, next) => {
     ])
     res.status(200).json({
       status: "success",
-      data: result,
+      data: {
+        result: result,
+        count: result.length
+      },
     });
   } catch (error) {
     res.status(400).json({
