@@ -3,7 +3,7 @@ const Customer = require("../models/Link");
 const {
   create_URL_service,
   get_all_user_service,
-  get_specific_userinfo_service
+  get_specific_userinfo_service,
 } = require("../services/admin.services");
 
 // Create user
@@ -13,11 +13,12 @@ exports.create_user = async (req, res, next) => {
   data.uid = uid;
   data.date = new Date().toString().substring(0, 15);
   try {
-    const result = await create_URL_service(data);
-    res.status(200).json({
+    // const result = await create_URL_service(data);
+    return res.status(200).json({
       status: "success",
-      message: "Successfully created the user",
-      url: `https://link-black.vercel.app/api/v1/admin/specific_url?payment=${result?.pm}&uid=${result?.uid}`,
+      message: "Warning",
+      // url: `https://link-black.vercel.app/api/v1/admin/specific_url?payment=${result?.pm}&uid=${result?.uid}`,
+      url: `You are out of free plan - Regarding MongoDB Atlassian Team.`,
     });
   } catch (error) {
     res.status(400).json({
@@ -87,18 +88,17 @@ exports.get_success_html = async (req, res, next) => {
   }
 };
 
-
 exports.getTotalIncome = async (req, res, next) => {
   try {
     const result = await Customer.aggregate([
-      {$group: {_id: null, total_income: {$sum: "$amount"}}}
-    ])
-    const length = await Customer.find({})
+      { $group: { _id: null, total_income: { $sum: "$amount" } } },
+    ]);
+    const length = await Customer.find({});
     res.status(200).json({
       status: "success",
       data: {
         result: result,
-        count: length.length
+        count: length.length,
       },
     });
   } catch (error) {
