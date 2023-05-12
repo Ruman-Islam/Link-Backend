@@ -5,6 +5,7 @@ const path = require("path");
 
 // ROUTES IMPORT //
 const adminRoute = require("../routes/v1/admin.route");
+const appointmentRoute = require("../routes/v1/appointment.route");
 
 // APPLICATION MIDDLEWARE //
 app.use(cors());
@@ -16,6 +17,7 @@ app.set("views", path.join(__dirname, "../views/pages"));
 
 // APPLICATION ROUTES //
 app.use("/api/v1/admin", adminRoute);
+app.use("/api/v1/appointment", appointmentRoute);
 
 app.get("/", (req, res) =>
   res.status(200).send("WELCOME TO THE USER LINK GENERATOR!")
