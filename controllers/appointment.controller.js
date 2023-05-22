@@ -57,6 +57,7 @@ exports.makeAppointment = async (req, res) => {
     const data = req.body;
     data.ticketNo =
       Date.now().toString(36) + Math.random().toString(36).substring(2);
+
     const result = await Appointment.create(data);
 
     return result
@@ -81,9 +82,32 @@ exports.checkAppointment = async (req, res) => {
   const searchDate = `August ${date} 2022`;
   try {
     const result = await Appointment.find({ date: searchDate });
+    console.log(searchDate, result);
     return res.status(200).json({
       status: "success",
       result,
+    });
+  } catch (error) {
+    return res.status(400).json({
+      status: "fail",
+      error: "Something Went Wrong!",
+    });
+  }
+};
+
+exports.analytics = async (req, res) => {
+  try {
+    const users = await User.find({});
+    const appointments = await Appointment.find({});
+    const data = {
+      users,
+      usersNumber: users.length,
+      appointments,
+      appointmentsNumber: appointments.length,
+    };
+    return res.status(200).json({
+      status: "success",
+      result: data,
     });
   } catch (error) {
     return res.status(400).json({
